@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/zoe/Desktop/Dev/FindMyMate/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ta/values-ta.xml",
+            "outputFile": "/home/zoe/Desktop/TravSim/FindMyMate/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ta/values-ta.xml",
             "map": [
                 {
                     "source": "/home/zoe/.gradle/caches/transforms-2/files-2.1/31fcc3d4bbdb09f9d54693ac5b26ffb3/jetified-play-services-basement-17.0.0/res/values-ta/values.xml",

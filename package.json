@@ -1,5 +1,5 @@
 {
-  "name": "FindMyMate",
+  "name": "find-my-mate",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   "dependencies": {
     "react": "16.13.1",
     "react-native": "0.63.2",
-    "react-native-maps": "https://github.com/xDemon200/react-native-maps"
+    "react-native-maps": "git+https://github.com/xDemon200/react-native-maps.git"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -26,5 +26,17 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zowiezo/FindMyMate.git"
+  },
+  "author": "Zoleka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zowiezo/FindMyMate/issues"
+  },
+  "homepage": "https://github.com/Zowiezo/FindMyMate#readme"
 }

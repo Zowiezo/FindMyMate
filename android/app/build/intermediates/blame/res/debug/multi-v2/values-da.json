@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/zoe/Desktop/Dev/FindMyMate/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-da/values-da.xml",
+            "outputFile": "/home/zoe/Desktop/TravSim/FindMyMate/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-da/values-da.xml",
             "map": [
                 {
                     "source": "/home/zoe/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/res/values-da/values.xml",
