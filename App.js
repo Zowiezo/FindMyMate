@@ -1,72 +1,103 @@
 import React, {Component} from 'react';
-import {StyleSheet} from 'react-native';
-import MapView, {Marker} from 'react-native-maps';
-// import MapScreen from './screens/MapScreen';
-// import MapListScreen from './screens/MapListScreen';
+import 'react-native-gesture-handler';
 
-// import UserToMeet from './components/UserToMeet';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
-export default class App extends Component {
-  render() {
-    return (
-    <MapView
-      style={{...StyleSheet.absoluteFillObject}}
-      initialRegion={{
-        latitude: -26.1874,
-        longitude: 28.0938,
-        latitudeDelta: 0.005,
-        longitudeDelta: 0.005,
-      }}>
-        
-    <Marker
-        coordinate={{latitude: -26.1874, longitude: 28.0938,}}
-        title="Your current location"
-        description="Lets meet up"
-    />
+import {StyleSheet, Text, View, Button} from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 
-    <Marker 
-        coordinate={{
-        latitude: -26.1863,
-        longitude: 28.0958,}}
-        title="Stacy"
-        description="Loves pets, jogging and Pizza"
-    />    
+import AppNavigator from './src/navigation/AppNavigator';
 
-    <Marker 
-        coordinate={{
-        latitude: -26.1889,
-        longitude: 28.0926,
-      }}
-        title="Mary"
-        description="Loves petss and pizza"
-    />
+import MapScreen from './src/screens/MapScreen';
+import MapListScreen from './src/screens/MapListScreen';
+import {setNavigator} from './src/screens/navigationRef';
+import UserToMeet from './src/components/UserToMeet';
 
-    <Marker 
-        coordinate={{
-        latitude: -26.1861,
-        longitude: 28.0939,
-      }}
-        title="Ty"
-        description="Loves jogging"
-    />
+function HomeScreen({navigation}) {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Find My Mate</Text>
+      <Button title="Enter App" onPress={() => navigation.navigate('Map')} />
+    </View>
+  );
+}
 
-    <Marker 
-        coordinate={{
-        latitude: -26.1873,
-        longitude: 28.0953,
-       }}
-        title="Peter"
-        description=" Loves pizze and pets"
-    />   
+function ProfileScreen({navigation}) {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Profile</Text>
+      <Button
+        title="Go to Map List"
+        onPress={() => navigation.navigate('MapList')}
+      />
+    </View>
+  );
+}
 
-    <Marker 
-        coordinate={{
-        latitude: -26.1889,
-        longitude: 28.0970,
-      }}
-        title="John"
-        description="Loves Jogging" 
-      />           
-        </MapView>
-    )
-  }}
+// function MapListScreen({navigation}) {
+//   return (
+//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//       <Text>Map lists</Text>
+//       <Button
+//         title="Go to Map"
+//         onPress={() => navigation.navigate('./src/screens/UserLocation.js')}
+//       />
+//     </View>
+//   );
+// }
+
+// function MapScreen({navigation}) {
+//   return (
+//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//       <Text>Current location Screen</Text>
+//       <Button
+//         title="Go to Map List"
+//         onPress={() => navigation.navigate('MapList')}
+//       />
+//     </View>
+//   );
+// }
+
+/* function UserLocation({navigation}) {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Current location Screen</Text>
+      <Button
+        title="Go to Map List"
+        onPress={() => navigation.navigate('User')}
+      />
+    </View>
+  );
+} */
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            title: 'My home',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+          }}
+        />
+
+        <Stack.Screen name="MapList" component={MapListScreen} />
+
+        <Stack.Screen name="Map" component={MapScreen} />
+
+        {/* <Stack.Screen name="User" component={UserLocation} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+export default App;
